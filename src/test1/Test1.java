@@ -8,6 +8,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
+
+//초기화 함수 만들기
 public class Test1 extends JFrame implements Initable{
 	
 	private Test1 test1 = this;

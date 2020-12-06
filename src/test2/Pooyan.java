@@ -11,14 +11,14 @@ public class Pooyan extends JLabel{
 	
 	public ImageIcon icPooyan;
 	
-	public int x=0;
-	public int y=0;
+	public int x=-5;
+	public int y=20;
 	 
 	
 	public Pooyan() {
 		icPooyan = new ImageIcon("images/attackBowPy.png");
 		setIcon(icPooyan);
-		setSize(200, 200);
+		setSize(90, 76);
 		setLocation(this.x, this.y);
 
 	}

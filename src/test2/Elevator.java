@@ -13,14 +13,17 @@ public class Elevator extends JLabel{
 	public boolean isUp = false;
 	public boolean isDown = false;
 	
-	public int x=650;
-	public int y=500;
+	public int yMax=589;
+	
+	public int x=732;
+	public int y=130;
 	
 	public Elevator() {
 		icElevator = new ImageIcon("images/elevator.png");
 		setIcon(icElevator);
-		setSize(200, 260);
+		setSize(110, 100);
 		setLocation(this.x, this.y);
+		setHorizontalAlignment(JLabel.CENTER);
 
 	}
 	
@@ -32,11 +35,14 @@ public class Elevator extends JLabel{
 					isDown=true;
 					while(isDown) {
 						y++;
+						System.out.println("y°ª : " +y);
+						if(y>589) {
+							y=589;
+						}
 						setLocation(x, y);
 						try {
 							Thread.sleep(5);
-						} catch (InterruptedException e) {
-							// TODO Auto-generated catch block
+						} catch (Exception e) {
 							e.printStackTrace();
 						}
 					}
@@ -54,11 +60,13 @@ public class Elevator extends JLabel{
 					isUp=true;
 					while(isUp) {
 						y--;
+						if(y<130) {
+							y=130;
+						}
 						setLocation(x, y);
 						try {
 							Thread.sleep(5);
-						} catch (InterruptedException e) {
-							// TODO Auto-generated catch block
+						} catch (Exception e) {
 							e.printStackTrace();
 						}
 					}

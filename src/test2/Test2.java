@@ -8,6 +8,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
+// Elevator, Pooyan JLabel 합치기, 위 아래 이동 (범위 이동)
 public class Test2 extends JFrame implements Initable{
 	
 	private Test2 pooyanApp = this;
@@ -15,8 +16,7 @@ public class Test2 extends JFrame implements Initable{
 	private JLabel laBackground;
 	private Pooyan pooyan;
 	private Elevator elevator;
-	private ImageIcon icPooyan;
-	private ImageIcon icElevator;
+	
 	
 	public static void main(String[] args) {
 		new Test2();
