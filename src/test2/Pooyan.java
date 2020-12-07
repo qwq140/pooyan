@@ -2,7 +2,6 @@ package test2;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
-import javax.swing.Timer;
 
 public class Pooyan extends JLabel{
 
@@ -13,7 +12,7 @@ public class Pooyan extends JLabel{
 	
 	public int x=-5;
 	public int y=20;
-	 
+	public boolean weaponStatus = false; // false : Bow, true : Meat 
 	
 	public Pooyan() {
 		icPooyan = new ImageIcon("images/attackBowPy.png");

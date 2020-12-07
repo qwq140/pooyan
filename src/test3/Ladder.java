@@ -6,9 +6,9 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.Timer;
 
-public class Red extends JLabel{
+public class Ladder extends JLabel{
 
-	public Red red = this;
+	public Ladder ladder = this;
 	public static final String TAG = "Red : ";
 	
 	
@@ -16,12 +16,11 @@ public class Red extends JLabel{
 	public int y;
 	
 	
-	public Red(int x, int y) {
+	public Ladder(int x, int y) {
 		this.x = x;
 		this.y = y;
 		setSize(80, 80);
-		setOpaque(true);
-		setBackground(Color.RED);
+		
 		setLocation(this.x, this.y);
 	}
 }

@@ -7,10 +7,10 @@ import test2.Pooyan;
 
 public class Wolf extends JLabel {
 
-	public Wolf wolf = this;
+	public Wolf wolf = this; // 컨텍스트
 	private static final String TAG = "Wolf : ";
 
-	private PooyanApp pooyanApp;
+	public PooyanApp pooyanApp;
 	
 	public ImageIcon icWolfMint;
 	public ImageIcon icWolfWalkR1;
@@ -27,9 +27,9 @@ public class Wolf extends JLabel {
 	public boolean isRight = false;
 	public boolean isUp = false;
 
-	public Wolf(int x) {
+	public Wolf(int x, PooyanApp pooyanApp) {
 		this.x=x;
-		
+		this.pooyanApp = pooyanApp;
 		icWolfMint = new ImageIcon("images/wolfMint4.png");
 		icWolfWalkR1 = new ImageIcon("images/walkWolfR1.png");
 		icWolfWalkR2 = new ImageIcon("images/walkWolfR2.png");
@@ -106,43 +106,53 @@ public class Wolf extends JLabel {
 				boolean upMotion = false;
 				setIcon(icWolfUpL);
 				setSize(80, 79);
-				x=x+10;
+//				x=x+10;
+				x=0;
 				pooyanApp.floor=pooyanApp.floor+1;
 				floor = pooyanApp.floor;
 				System.out.println(pooyanApp.floor);
 				if(floor == 1) {
-					y=710;
+//					y=710;
+					pooyanApp.ladderFloor.get(0).add(this);
+					y=80;
 				}
 				if(floor == 2) {
-					y=590;
+//					y=590;
+					pooyanApp.ladderFloor.get(1).add(this);
+					y=80;
 				}
 				if(floor == 3) {
-					y=470;
+//					y=470;
+					pooyanApp.ladderFloor.get(2).add(this);
+					y=80;
 				}
 				if(floor == 4) {
-					y=350;
+//					y=350;
+					pooyanApp.ladderFloor.get(2).add(this);
+					y=80;
 				}
 				isUp=true;
 				while(isUp) {
-					y=y-5;
+//					y=y-4;
+					y--;
 					setLocation(x, y);
-					if(floor == 1 && y<629) {
-						y=629;
+					if(floor == 1 && y<0) { // 629
+						y=0;
 						isUp = false;
 						break;
 					}
-					if(floor == 2 && y<509) {
-						y=509;
+					if(floor == 2 && y<0) { // 509
+						y=0;
 						isUp = false;
 						break;
 					}
-					if(floor == 3 && y<389) {
-						y=389;
+					if(floor == 3 && y<0) { // 389
+						y=0;
 						isUp = false;
 						break;
 					}
-					if(floor == 4 && y<279) {
-						y=279;
+					if(floor == 4 && y<0) { // 269
+						y=0;
 						isUp = false;
 						break;
 					}

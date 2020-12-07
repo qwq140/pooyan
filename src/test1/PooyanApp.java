@@ -10,19 +10,19 @@ import javax.swing.JLabel;
 
 
 //초기화 함수 만들기
-public class Test1 extends JFrame implements Initable{
+public class PooyanApp extends JFrame implements Initable{
 	
-	private Test1 test1 = this;
+	public PooyanApp pooyanApp = this;
 	private static final String TAG ="test1 : ";
 	private JLabel laBackground;
 	private Red player;
-	private Vector<Blue> vcB;
+	private Vector<Blue> wolves;
 	
 	public static void main(String[] args) {
-		new Test1();
+		new PooyanApp();
 	}
 
-	public Test1() {
+	public PooyanApp() {
 		init();
 		setting();
 		batch();
@@ -35,15 +35,16 @@ public class Test1 extends JFrame implements Initable{
 	@Override
 	public void init() {
 		laBackground = new JLabel(new ImageIcon("images/background.png"));
-		vcB = new Vector<>();
+		wolves = new Vector<>();
 		
-		vcB.add(new Blue(80,0));
-		vcB.add(new Blue(300,0));
-		vcB.add(new Blue(500,0));
-		vcB.add(new Blue(80,100));
-		vcB.add(new Blue(400,150));
-		vcB.add(new Blue(150,600));
-		vcB.add(new Blue(400,500));
+		wolves.add(new Blue(80,0));
+		wolves.add(new Blue(300,0));
+		wolves.add(new Blue(500,0));
+		wolves.add(new Blue(80,100));
+		wolves.add(new Blue(400,150));
+		wolves.add(new Blue(150,600));
+		wolves.add(new Blue(400,500));
+		wolves.add(new Blue(200,450));
 		
 		player = new Red(750,400);
 	}
@@ -60,8 +61,8 @@ public class Test1 extends JFrame implements Initable{
 
 	@Override
 	public void batch() {
-		for (int i = 0; i < vcB.size(); i++) {
-			add(vcB.get(i));
+		for (int i = 0; i < wolves.size(); i++) {
+			add(wolves.get(i));
 		}
 		add(player);
 	}
@@ -77,18 +78,15 @@ public class Test1 extends JFrame implements Initable{
 				}
 			}
 		});
-		
 	}
 	
 	public void reset() {
-		for (int i = 0; i < vcB.size(); i++) {
+		for (int i = 0; i < wolves.size(); i++) {
 //			vcB.get(i).setVisible(false);
-			remove(vcB.get(i));
+			remove(wolves.get(i));
 		}
-		vcB.clear();
-//		System.out.println(vcB.size());
+		wolves.clear();
 		remove(player);
-//		revalidate();
 		repaint();
 		
 //		player.setVisible(false);

@@ -11,16 +11,17 @@ import javax.swing.JLabel;
 //Wolf Down, Right, Up 虜菟晦
 public class PooyanApp extends JFrame implements Initable {
 
-	private PooyanApp pooyanApp = this;
+	public PooyanApp pooyanApp = this;
 	private static final String TAG = "PooyanApp : ";
 	private JLabel laBackground;
-
+	
+	public Ladder ladder;
+	
 	private Wolf wolf;
-	private Vector<Wolf> wolves;
+	public Vector<Wolf> wolves;
+	public Vector<Ladder> ladderFloor; 
 
-	private int num = 0;
-
-	public static int floor = 0;
+	public int floor = 0;
 
 	public static void main(String[] args) {
 		new PooyanApp();
@@ -40,13 +41,16 @@ public class PooyanApp extends JFrame implements Initable {
 	public void init() {
 		laBackground = new JLabel(new ImageIcon("images/background.png"));
 		wolves = new Vector<>();
+		ladderFloor = new Vector<>();
+		
+		
 		new Thread(new Runnable() {
 			@Override
 			public void run() {
 				for (int i = 0; i < 3; i++) {
 					try {
 						Thread.sleep(1000);
-						wolves.add(new Wolf(i*100));
+						wolves.add(new Wolf(i*100, pooyanApp));
 						add(wolves.get(i));
 					} catch (Exception e) {
 						e.printStackTrace();
@@ -84,6 +88,13 @@ public class PooyanApp extends JFrame implements Initable {
 //				}
 //			}
 //		}).start();
+		ladderFloor.add(new Ladder(810,629)); // 1類
+		ladderFloor.add(new Ladder(810,509)); // 2類
+		ladderFloor.add(new Ladder(810,389)); // 3類
+		ladderFloor.add(new Ladder(810,269)); // 4類
+		for (int i = 0; i < ladderFloor.size(); i++) {
+			add(ladderFloor.get(i));
+		}
 	}
 	@Override
 	public void listener() {
