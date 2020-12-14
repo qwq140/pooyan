@@ -6,9 +6,9 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.Timer;
 
-public class Red extends JLabel{
+public class Player extends JLabel{
 
-	public Red red = this;
+	public Player red = this;
 	public static final String TAG = "Red : ";
 	
 	
@@ -17,7 +17,7 @@ public class Red extends JLabel{
 	
 	public boolean isRight = false; 
 	
-	public Red(int x, int y) {
+	public Player(int x, int y) {
 		this.x = x;
 		this.y = y;
 		setSize(70, 70);

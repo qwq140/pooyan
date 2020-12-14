@@ -10,19 +10,19 @@ import javax.swing.JLabel;
 
 
 //초기화 함수 만들기
-public class PooyanApp extends JFrame implements Initable{
+public class test1 extends JFrame implements Initable{
 	
-	public PooyanApp pooyanApp = this;
+	public test1 pooyanApp = this;
 	private static final String TAG ="test1 : ";
 	private JLabel laBackground;
-	private Red player;
-	private Vector<Blue> wolves;
+	private Player player;
+	private Vector<Wolf> wolves;
 	
 	public static void main(String[] args) {
-		new PooyanApp();
+		new test1();
 	}
 
-	public PooyanApp() {
+	public test1() {
 		init();
 		setting();
 		batch();
@@ -37,16 +37,16 @@ public class PooyanApp extends JFrame implements Initable{
 		laBackground = new JLabel(new ImageIcon("images/background.png"));
 		wolves = new Vector<>();
 		
-		wolves.add(new Blue(80,0));
-		wolves.add(new Blue(300,0));
-		wolves.add(new Blue(500,0));
-		wolves.add(new Blue(80,100));
-		wolves.add(new Blue(400,150));
-		wolves.add(new Blue(150,600));
-		wolves.add(new Blue(400,500));
-		wolves.add(new Blue(200,450));
+		wolves.add(new Wolf(80,0));
+		wolves.add(new Wolf(300,0));
+		wolves.add(new Wolf(500,0));
+		wolves.add(new Wolf(80,100));
+		wolves.add(new Wolf(400,150));
+		wolves.add(new Wolf(150,600));
+		wolves.add(new Wolf(400,500));
+		wolves.add(new Wolf(200,450));
 		
-		player = new Red(750,400);
+		player = new Player(750,400);
 	}
 
 	@Override
@@ -80,6 +80,7 @@ public class PooyanApp extends JFrame implements Initable{
 		});
 	}
 	
+	// 리셋 함수
 	public void reset() {
 		for (int i = 0; i < wolves.size(); i++) {
 //			vcB.get(i).setVisible(false);
